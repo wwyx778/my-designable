@@ -31,8 +31,8 @@ import {
   PreviewWidget,
   SchemaEditorWidget,
   MarkupSchemaWidget,
-} from './widgets'
-import { saveSchema } from './service'
+} from './src/widgets'
+import { saveSchema } from './src/service'
 import {
   Form,
   Field,
@@ -61,7 +61,7 @@ import {
   FormCollapse,
   FormLayout,
   FormGrid,
-} from '../src'
+} from './src'
 
 GlobalRegistry.registerDesignerLocales({
   'zh-CN': {

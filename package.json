@@ -15,10 +15,10 @@
     "npm": ">=3.0.0"
   },
   "scripts": {
-    "build": "rimraf -rf lib esm dist && npm run build:cjs && npm run build:esm && ts-node copy",
+    "build": "rimraf -rf lib esm dist && npm run build:cjs",
     "build:cjs": "tsc --project tsconfig.build.json",
-    "build:playground": "webpack-cli --config playground/webpack.prod.js",
-    "start": "webpack-dev-server --config playground/webpack.dev.js"
+    "build:playground": "webpack-cli --config ./webpack.prod.js",
+    "start": "webpack-dev-server --config ./webpack.dev.js"
   },
   "devDependencies": {
     "@designable/react-settings-form": "1.0.0-beta.11",

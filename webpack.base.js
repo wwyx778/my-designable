@@ -1,30 +1,7 @@
-import path from 'path'
-import fs from 'fs-extra'
-import { GlobSync } from 'glob'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import autoprefixer from 'autoprefixer'
-// import { getThemeVariables } from 'antd/dist/theme'
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const getWorkspaceAlias = () => {
-  const basePath = path.resolve(__dirname, '../../../')
-  const pkg = fs.readJSONSync(path.resolve(basePath, 'package.json')) || {}
-  const results = {}
-  const workspaces = pkg.workspaces
-  if (Array.isArray(workspaces)) {
-    workspaces.forEach((pattern) => {
-      const { found } = new GlobSync(pattern, { cwd: basePath })
-      found.forEach((name) => {
-        const pkg = fs.readJSONSync(
-          path.resolve(basePath, name, './package.json')
-        )
-        results[pkg.name] = path.resolve(basePath, name, './src')
-      })
-    })
-  }
-  return results
-}
-
-export default {
+module.exports = {
   mode: 'development',
   devtool: 'inline-source-map', // 嵌入到源文件中
   stats: {
@@ -35,13 +12,16 @@ export default {
     playground: path.resolve(__dirname, './main'),
   },
   output: {
-    path: path.resolve(__dirname, '../build'),
+    path: path.resolve(__dirname, './build'),
     filename: '[name].[hash].bundle.js',
   },
   resolve: {
     modules: ['node_modules'],
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
-    alias: getWorkspaceAlias(),
+    // alias: {
+    //   'setters': path.resolve(__dirname, '../../src/setters'),
+    //   'transformer': path.resolve(__dirname, '../../src/transformer'),
+    // },
   },
   externals: {
     react: 'React',
@@ -71,19 +51,16 @@ export default {
         use: [
           MiniCssExtractPlugin.loader,
           { loader: 'css-loader' },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => autoprefixer(),
-            },
-          },
+          { loader: 'postcss-loader' },
           {
             loader: 'less-loader',
             options: {
-              // modifyVars: getThemeVariables({
-              //   dark: true, // 开启暗黑模式
-              // }),
-              javascriptEnabled: true,
+              lessOptions: {
+                // modifyVars: getThemeVariables({
+                //   dark: true, // 开启暗黑模式
+                // }),
+                javascriptEnabled: true,
+              },
             },
           },
         ],

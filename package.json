@@ -1,6 +1,6 @@
 {
   "name": "@designable/formily-antd",
-  "version": "1.0.0-beta.11",
+  "version": "1.0.0-beta.34",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -17,19 +17,21 @@
   "scripts": {
     "build": "rimraf -rf lib esm dist && npm run build:cjs",
     "build:cjs": "tsc --project tsconfig.build.json",
-    "build:playground": "webpack-cli --config ./webpack.prod.js",
+    "build:dev": "webpack-cli --config ./webpack.dev.js",
+    "build:prod": "webpack-cli --config ./webpack.prod.js",
     "start": "webpack-dev-server --config ./webpack.dev.js"
   },
   "devDependencies": {
-    "@designable/react-settings-form": "1.0.0-beta.11",
-    "@formily/antd": "^2.0.0-rc.12",
-    "@formily/core": "^2.0.0-rc.12",
-    "@formily/react": "^2.0.0-rc.12",
-    "@formily/reactive": "^2.0.0-rc.12",
-    "@formily/shared": "^2.0.0-rc.12",
+    "@designable/react-settings-form": "1.0.0-beta.34",
+    "@formily/antd": "^2.0.0-rc.20",
+    "@formily/core": "^2.0.0-rc.20",
+    "@formily/react": "^2.0.0-rc.20",
+    "@formily/reactive": "^2.0.0-rc.20",
+    "@formily/shared": "^2.0.0-rc.20",
     "@types/react": "^16.8.0",
     "@types/react-dom": "^16.8.0",
     "autoprefixer": "^9.0",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^5.0.0",
     "file-loader": "^5.0.2",
     "fs-extra": "^8.1.0",
@@ -47,8 +49,8 @@
     "rollup": "^2.37.1",
     "rollup-plugin-external-globals": "^0.6.1",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-typescript2": "^0.30.0",
     "style-loader": "^1.1.3",
     "ts-loader": "^7.0.4",
     "ts-node": "^9.1.1",
@@ -58,22 +60,9 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
   },
-  "peerDependencies": {
-    "@formily/antd": "^2.0.0-rc.12",
-    "@formily/core": "^2.0.0-rc.12",
-    "@formily/react": "^2.0.0-rc.12",
-    "@formily/reactive": "^2.0.0-rc.12",
-    "@formily/shared": "^2.0.0-rc.12",
-    "@types/react": ">=16.8.0 || >=17.0.0",
-    "@types/react-dom": ">=16.8.0 || >=17.0.0",
-    "antd": "^4.0.0",
-    "react": ">=16.8.0 || >=17.0.0",
-    "react-dom": ">=16.8.0",
-    "react-is": ">=16.8.0 || >=17.0.0"
-  },
   "dependencies": {
-    "@designable/core": "1.0.0-beta.11",
-    "@designable/react": "1.0.0-beta.11",
+    "@designable/core": "1.0.0-beta.34",
+    "@designable/react": "1.0.0-beta.34",
     "antd": "^4.0.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"

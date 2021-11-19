@@ -2,6 +2,7 @@ const baseConfig = require('./webpack.base')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const MonacoPlugin = require('monaco-editor-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 //const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const webpack = require('webpack')
 const path = require('path')
@@ -32,6 +33,7 @@ module.exports = {
         chunk: ['playground'],
       },
     ]),
+    new CleanWebpackPlugin(),
     new MonacoPlugin({
       languages: ['json'],
     }),

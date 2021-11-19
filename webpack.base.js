@@ -12,7 +12,7 @@ module.exports = {
     playground: path.resolve(__dirname, './main'),
   },
   output: {
-    path: path.resolve(__dirname, './build'),
+    path: path.resolve(__dirname, './dist'),
     filename: '[name].[hash].bundle.js',
   },
   resolve: {

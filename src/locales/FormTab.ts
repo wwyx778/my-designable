@@ -50,7 +50,7 @@ export const FormTabPane = {
     title: 'Tab Panel',
     settings: {
       'x-component-props': {
-        tab: 'Pane Title',
+        tab: 'Panel Title',
       },
     },
   },

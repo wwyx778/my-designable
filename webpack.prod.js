@@ -34,9 +34,9 @@ module.exports = {
       },
     ]),
     new CleanWebpackPlugin(),
-    new MonacoPlugin({
-      languages: ['json'],
-    }),
+    // new MonacoPlugin({
+    //   languages: ['json'],
+    // }),
   ],
   optimization: {
     minimize: true,

@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const MonacoPlugin = require('monaco-editor-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-//const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const webpack = require('webpack')
 const path = require('path')
 
@@ -48,7 +48,7 @@ module.exports = {
     // new MonacoPlugin({
     //   languages: ['json'],
     // }),
-    // new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin()
   ],
   devServer: {
     host: '127.0.0.1',
